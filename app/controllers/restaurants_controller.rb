@@ -40,7 +40,9 @@ class RestrauntsController < ApplicationController
 
     def pizzas_index
       pizzas = Pizza.all
+
 # GET /pizzas returns json data in form below
+
       render json: pizzas, only: [:id, :name, :ingredients]
     end
   end
@@ -48,6 +50,10 @@ class RestrauntsController < ApplicationController
 class RestaurantPizzasController < ApplicationController
 
     def create
+      
+# POST /restaurant_pizzas This route should create a new `RestaurantPizza` that is associated with an
+# existing `Pizza` and `Restaurant`
+
       restaurant_pizza = RestaurantPizza.new(restaurant_pizza_params)
       if restaurant_pizza.save
         render json: restaurant_pizza.pizza.slice(:id, :name, :ingredients)
