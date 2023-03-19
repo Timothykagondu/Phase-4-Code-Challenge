@@ -1,0 +1,2 @@
+class Createpizza < ApplicationRecord
+end
