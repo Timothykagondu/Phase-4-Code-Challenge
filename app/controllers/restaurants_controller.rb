@@ -1,10 +1,19 @@
 class RestrauntsController < ApplicationController
 
+# routes setup
+
     def index
       restaurants = Restaurant.all
+
+# GET /restaurants returns json data in form below
+
       render json: restaurants, only: [:id, :name, :address]
     end
+
     def show
+
+# GET /restaurants/:id-gets elements by ID
+
       restaurant = Restaurant.find_by(id: params[:id])
       if restaurant
         render json: restaurant.as_json(include: { pizzas: { only: [:id, :name, :ingredients] } })
@@ -15,6 +24,9 @@ class RestrauntsController < ApplicationController
 
 
     def destroy
+
+# DELETE /restaurants/:id-removes elements from database
+
       restaurant = Restaurant.find_by(id: params[:id])
       if restaurant
         restaurant.restaurant_pizzas.destroy_all
@@ -28,6 +40,7 @@ class RestrauntsController < ApplicationController
 
     def pizzas_index
       pizzas = Pizza.all
+# GET /pizzas returns json data in form below
       render json: pizzas, only: [:id, :name, :ingredients]
     end
   end
