@@ -58,6 +58,9 @@ class RestaurantPizzasController < ApplicationController
       if restaurant_pizza.save
         render json: restaurant_pizza.pizza.slice(:id, :name, :ingredients)
       else
+# If the `RestaurantPizza` is **not** created successfully, return the following
+# JSON data, along with the appropriate HTTP status code
+
         render json: { errors: restaurant_pizza.errors.full_messages }, status: :unprocessable_entity
       end
     end
