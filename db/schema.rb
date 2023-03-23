@@ -10,31 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_19_195601) do
-  create_table "pizas", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_03_21_120626) do
+  create_table "pizzas", force: :cascade do |t|
     t.string "name"
     t.text "ingredients"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "resturant_pizzas", force: :cascade do |t|
-    t.integer "restaurant_id", null: false
-    t.integer "pizza_id", null: false
-    t.integer "price"
+  create_table "restaurant_pizzas", force: :cascade do |t|
+    t.float "price"
+    t.integer "restaurant_id"
+    t.integer "pizza_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["pizza_id"], name: "index_resturant_pizzas_on_pizza_id"
-    t.index ["restaurant_id"], name: "index_resturant_pizzas_on_restaurant_id"
+    t.index ["pizza_id"], name: "index_restaurant_pizzas_on_pizza_id"
+    t.index ["restaurant_id"], name: "index_restaurant_pizzas_on_restaurant_id"
   end
 
-  create_table "resturants", force: :cascade do |t|
+  create_table "restaurants", force: :cascade do |t|
     t.string "name"
-    t.string "address"
+    t.text "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "resturant_pizzas", "pizzas"
-  add_foreign_key "resturant_pizzas", "restaurants"
+  add_foreign_key "restaurant_pizzas", "pizzas"
+  add_foreign_key "restaurant_pizzas", "restaurants"
 end

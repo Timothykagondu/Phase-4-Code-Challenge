@@ -1,6 +1,6 @@
-class CreatePizas < ActiveRecord::Migration[7.0]
+class CreatePizzas < ActiveRecord::Migration[7.0]
   def change
-    create_table :pizas do |t|
+    create_table :pizzas do |t|
       t.string :name
       t.text :ingredients
 

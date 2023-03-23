@@ -4,5 +4,4 @@ class Pizza < ApplicationRecord
 # A `Pizza` has many `Restaurant`s through `RestaurantPizza`
 
     has_many :restaurants, through: :restaurant_pizzas
-  end
-  
+end
