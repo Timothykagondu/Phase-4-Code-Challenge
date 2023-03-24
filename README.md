@@ -52,3 +52,7 @@ Start server with:
     rails server or rails s
 ```
 Open `http://localhost:3000/` in your browser.
+
+### API
+
+<a href="https://last-attempt-pizza-app.onrender.com/pizzas"> </a>
